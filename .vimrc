@@ -48,6 +48,9 @@ Plugin 'miyakogi/conoline.vim'
 "co-vim
 Plugin 'FredKSchott/CoVim'
 
+"tcomment
+Plugin 'tomtom/tcomment_vim'
+
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
