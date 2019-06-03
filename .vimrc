@@ -110,7 +110,7 @@ if version >= 600
     set foldmethod=marker
     set foldlevel=1
     set encoding=utf-8
-    set fileencodings=big5,utf-8,ucs-bom,latin1
+    set fileencodings=utf-8,big5,ucs-bom,latin1
     set termencoding=utf-8
 else
     set fileencoding=taiwan
