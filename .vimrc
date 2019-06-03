@@ -45,6 +45,9 @@ Plugin 'terryma/vim-multiple-cursors'
 "----cursor line
 Plugin 'miyakogi/conoline.vim'
 
+"co-vim
+Plugin 'FredKSchott/CoVim'
+
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
