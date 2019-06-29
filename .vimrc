@@ -108,7 +108,7 @@ nnoremap <silent> >	:wincmd ><CR>
 if version >= 600
     set nohlsearch
     set foldmethod=marker
-    set foldlevel=1
+    set foldlevel=0
     set encoding=utf-8
     set fileencodings=utf-8,big5,ucs-bom,latin1
     set termencoding=utf-8
