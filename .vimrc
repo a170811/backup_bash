@@ -45,9 +45,6 @@ Plugin 'terryma/vim-multiple-cursors'
 "----cursor line
 Plugin 'miyakogi/conoline.vim'
 
-"co-vim
-Plugin 'FredKSchott/CoVim'
-
 "tcomment
 Plugin 'tomtom/tcomment_vim'
 
