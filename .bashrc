@@ -95,11 +95,12 @@ alias tls='tmux ls'
 alias tre='function tre(){ tmux rename-session -t $1 $2 ; }; tre'
 
 alias se='set'
-alias en='encoding' 
+alias en='encoding'
 #
 alias ptt='ssh bbsu@ptt.cc'
 #
 alias vir='function vir(){ source ~/.virtualenv/$1/bin/activate ; } ; vir'
+alias env='python3 -m venv ./env ; . ./env/bin/activate ; pip install --upgrade pip'
 alias py="python3"
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -165,7 +166,7 @@ echo "(${ref#refs/heads/} $info)";
 
 function _ls() {
 #LANG=zh_TW.BIG5
-/bin/ls -C --color=always $@ | /usr/bin/iconv 
+/bin/ls -C --color=always $@ | /usr/bin/iconv
 #LANG=zh_TW.UTF-8
 }
 
@@ -174,7 +175,7 @@ day=$1; shift
 find . -maxdepth 1 -mtime +${day} $@
 }
 
-function _rm() { 
+function _rm() {
 while [ $# -ge 1 ]; do
   mv -f "$1" $HOME/tmp
   echo "$1 deleted."
