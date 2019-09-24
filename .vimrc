@@ -34,9 +34,6 @@ Plugin 'digitaltoad/vim-jade'
 "----Stylus
 Plugin 'wavded/vim-stylus'
 
-" surround
-Plugin 'tpope/vim-surround.git'
-
 " vim-better-whitespace
 Plugin 'ntpeters/vim-better-whitespace'
 
@@ -49,6 +46,8 @@ Plugin 'miyakogi/conoline.vim'
 "tcomment
 Plugin 'tomtom/tcomment_vim'
 
+"--RRethy/vim-illuminate
+Plugin 'RRethy/vim-illuminate'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
@@ -69,6 +68,21 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '|'
 let g:indentLine_conceallevel=1
 let g:pymode_lint_ignore = 'E502'
+"--vim-illuminate
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+highlight CursorLine guibg=#303000 ctermbg=234
+highlight Cursor guibg=Black
+
+hi illuminatedWord cterm=reverse ctermbg=Black   gui=underline
+let g:Illuminate_delay = 10
+let g:Illuminate_ftHighlightGroups = {
+\ 'vim': ['vimVar', 'vimString', 'vimLineComment',
+\         'vimFuncName', 'vimFunction', 'vimUserFunc', 'vimFunc']
+\ }
+
 "------------------------general setting----------------------------
 "--search highlight
 syntax on
