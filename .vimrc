@@ -119,6 +119,10 @@ nnoremap <silent> -	:wincmd -<CR>
 nnoremap <silent> <	:wincmd <<CR>
 nnoremap <silent> >	:wincmd ><CR>
 
+"--mine
+imap <Tab> <C-n>
+vmap <Tab> gc
+
 " VIM 6.0, We're using VIM on ntucs? Solaris, my own build
 if version >= 600
     set nohlsearch
