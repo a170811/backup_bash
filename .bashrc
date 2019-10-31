@@ -113,10 +113,12 @@ alias cpca='function CpcompileA(){ g++ *.cpp -o "output" && ./"output" ; } ; Cpc
 alias virc='vi ~/.bashrc'
 alias sorc='source ~/.bashrc'
 alias topub='function topub(){ ln -s $(pwd)/$1 ~/public_html/$2 ; }; topub'
+alias viewcsv='viewcsv'
+
+function viewcsv () { column -s, -t < $1 | less -#2 -N -S; }
 
 
 #git
-
 alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m '
