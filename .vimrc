@@ -27,6 +27,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'othree/html5.vim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'othree/vim-javascript-syntax'
+Plugin 'posva/vim-vue'
 
 "----Jade
 Plugin 'digitaltoad/vim-jade'
