@@ -25,8 +25,10 @@ Plugin 'airblade/vim-gitgutter'
 
 "--Web
 Plugin 'othree/html5.vim'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'othree/vim-javascript-syntax'
+Plugin 'digitaltoad/vim-pug'
+Plugin 'JulesWang/css.vim'
+Plugin 'gavocanov/vim-js-indent'
+Plugin 'jelera/vim-javascript-syntax'
 
 "----Jade
 Plugin 'digitaltoad/vim-jade'
@@ -141,7 +143,28 @@ colorscheme torte
 
 hi Comment ctermfg=Red
 
-" vi:sw=4:ts=4
+" --- Set shiftwidth and softtabstop --- "
+" autocmd FileType yaml,html,css,javascript,ls,vue setlocal expandtab shiftwidth=2 softtabstop=2
+" autocmd FileType javascript setlocal filetype=javascript.jsx
+autocmd FileType javascript.jsx setlocal autoindent
+autocmd FileType pug,sass,styl setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType json setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType perl,python,java setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd FileType sh,make setlocal shiftwidth=4 tabstop=4
+autocmd FileType c,cuda,cpp setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd FileType php setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd BufNewFile *.h setlocal shiftwidth=4 tabstop=4 expandtab
 
-set tabstop=4
-set shiftwidth=4
+autocmd BufNewFile,BufEnter *.vue setfiletype vue
+autocmd FileType vue setlocal autoindent expandtab shiftwidth=2 softtabstop=2 commentstring=//\ %s comments=://
+\ | syntax include @PUG syntax/pug.vim | unlet b:current_syntax
+\ | syntax include @JS syntax/javascript.vim | unlet b:current_syntax
+\ | syntax include @SASS syntax/sass.vim | unlet b:current_syntax
+\ | syntax region vueTemplate matchgroup=vueTag start=/^<template.*>$/ end='</template>' contains=@PUG keepend
+\ | syntax region vueScript matchgroup=vueTag start=/^<script.*>$/ end='</script>' contains=@JS keepend
+\ | syntax region vueStyle matchgroup=vueTag start=/^<style.*>$/ end='</style>' contains=@SASS keepend
+\ | syntax match htmlArg /v-text\|v-html\|v-if\|v-show\|v-else\|v-for\|v-on\|v-bind\|v-model\|v-pre\|v-cloak\|v-once/ contained
+\ | syntax keyword htmlArg contained key ref slot
+\ | syntax keyword htmlTagName contained component transition transition-group keep-alive slot
+\ | syntax sync fromstart
+highlight vueTag ctermfg=Blue
