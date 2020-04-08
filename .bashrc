@@ -100,7 +100,7 @@ alias en='encoding'
 alias ptt='ssh bbsu@ptt.cc'
 #
 alias vir='function vir(){ source ~/.virtualenv/$1/bin/activate ; } ; vir'
-alias venv='python3 -m venv ./.venv ; . ./.env/bin/activate ; pip install --upgrade pip'
+alias venv='python3 -m venv ./.venv ; . ./.venv/bin/activate ; pip install --upgrade pip'
 alias py="time python3"
 alias ..='cd ../'
 alias ...='cd ../../'
