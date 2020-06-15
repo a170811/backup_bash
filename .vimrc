@@ -23,16 +23,6 @@ Plugin 'vim-airline/vim-airline-themes'
 "--git diff
 Plugin 'airblade/vim-gitgutter'
 
-"--Web
-Plugin 'othree/html5.vim'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'JulesWang/css.vim'
-Plugin 'gavocanov/vim-js-indent'
-Plugin 'jelera/vim-javascript-syntax'
-
-"----Jade
-Plugin 'digitaltoad/vim-jade'
-
 "----Stylus
 Plugin 'wavded/vim-stylus'
 
@@ -50,6 +40,12 @@ Plugin 'tomtom/tcomment_vim'
 
 "--RRethy/vim-illuminate
 Plugin 'RRethy/vim-illuminate'
+
+" supertab
+Plugin 'ervandew/supertab'
+
+" language highlight
+Plugin 'sheerun/vim-polyglot'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
