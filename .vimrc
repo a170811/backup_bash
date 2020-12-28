@@ -47,6 +47,9 @@ Plugin 'ervandew/supertab'
 " language highlight
 Plugin 'sheerun/vim-polyglot'
 
+" vundle
+Plugin 'tell-k/vim-autopep8'
+
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
 "call vundle#end()   " required
@@ -80,6 +83,8 @@ let g:Illuminate_ftHighlightGroups = {
 \ 'vim': ['vimVar', 'vimString', 'vimLineComment',
 \         'vimFuncName', 'vimFunction', 'vimUserFunc', 'vimFunc']
 \ }
+"--autopep8
+autocmd FileType python set equalprg=autopep8\ -
 
 "------------------------general setting----------------------------
 "--search highlight
