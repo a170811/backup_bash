@@ -72,7 +72,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -158,6 +157,8 @@ alias grs='git remote show origin'
 alias merry='ssh merry.ee.ncku.edu.tw'
 alias luffy='ssh luffy.ee.ncku.edu.tw'
 alias sunny='ssh sunny.ee.ncku.edu.tw'
+alias paper='rsync -ravh --exclude=.venv --exclude=__pycache__ --exclude=data --exclude=tmp --delete a170811@merry.ee.ncku.edu.tw:~/paper/ /Users/a170811/working/paper/'
+alias paperr='rsync -ravh --exclude=.venv --exclude=__pycache__ --exclude=data --exclude=tmp --delete /Users/a170811/working/paper/ a170811@merry.ee.ncku.edu.tw:~/paper/'
 
 function _rm() {
 while [ $# -ge 1 ]; do
