@@ -169,4 +169,4 @@ done
 }
 
 # vi:nowrap:sw=4:ts=4
-export PYTHONPATH="/home/a170811/my_tools/"
+export PYTHONPATH="/home/a170811/backup_bash/python_utils/"

@@ -198,6 +198,6 @@ export PERL5LIB="/usr/local/lib/perl5/lib/perl5/i486-linux-gnu-thread-multi:/usr
 export PATH="/usr/local/lib/perl5/bin:$PATH";
 PATH=/usr/local/lib/perl5/bin:/usr/local/lib/perl5/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bobo258/bin:/home/bobo258/.aspera/connect/bin:/home/bobo258/bin:/home/bobo258/.aspera/connect/bin:/home/bobo258/git/thesis/ncbi-blast-2.6.0+/bin
 export PATH
-export PYTHONPATH="/home/a170811/my_tools/"
+export PYTHONPATH="/home/a170811/backup_bash/python_utils/"
 
 
