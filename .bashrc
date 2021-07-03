@@ -189,6 +189,8 @@ function rmold() {
 find . -maxdepth 1 -mtime +$1 -exec rm -rf {} \;
 }
 
+detach_others() { tmux detach-client -a; }
+
 # vi:nowrap:sw=4:ts=4
 export CLASSPATH=".:/usr/lib/jvm/java-7-openjdk-amd64";
 export PERL_LOCAL_LIB_ROOT="/usr/local/lib/perl5";
