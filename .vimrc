@@ -13,6 +13,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 "-----------------------Vundle plugins------------------------------
 "--utility
+" vim ale
+Plugin 'w0rp/ale'
+
 " Indent line
 Plugin 'Yggdroot/indentLine'
 
@@ -85,6 +88,21 @@ let g:Illuminate_ftHighlightGroups = {
 \ }
 "--autopep8
 autocmd FileType python set equalprg=autopep8\ -
+"--ale
+let g:ale_fix_on_save = 1
+let g:ale_linters = {
+\   'go': ['vet', 'errcheck'],
+\   'python': ['flake8', 'pylint'],
+\}
+let g:ale_python_flake8_options = '--ignore=E501,W291,N806,F405'
+
+let g:ale_fixers = {
+\ 'go': ['gofmt'],
+\ 'python': ['autopep8','yapf'],
+\}
+
+nnoremap <silent> <C-U> :ALEPreviousWrap<CR>
+nnoremap <silent> <C-D> :ALENextWrap<CR>
 
 "------------------------general setting----------------------------
 "--search highlight
