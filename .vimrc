@@ -1,62 +1,58 @@
-"---------------------------Vundle----------------------------------
-" Vundle tutorial on github: https://github.com/VundleVim/Vundle.vim
-set nocompatible    " be iMproved, required
-filetype off        " required
+"---------------------------vim-plug----------------------------------
+" Install vim-plug if we don't already have it
+if empty(glob('~/.vim/autoload/plug.vim'))
+silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-"-----------------------Vundle plugins------------------------------
+"-----------------------vim-plug plugins------------------------------
 "--utility
 " vim ale
-Plugin 'w0rp/ale'
+Plug 'w0rp/ale'
 
 " Indent line
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 "----tabbar
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "--git diff
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 "----Stylus
-Plugin 'wavded/vim-stylus'
+Plug 'wavded/vim-stylus'
 
 " vim-better-whitespace
-Plugin 'ntpeters/vim-better-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 
 "multiple-cursors
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 "----cursor line
-Plugin 'miyakogi/conoline.vim'
+Plug 'miyakogi/conoline.vim'
 
 "tcomment
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 
 "--RRethy/vim-illuminate
-Plugin 'RRethy/vim-illuminate'
+Plug 'RRethy/vim-illuminate'
 
 " supertab
-Plugin 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 " language highlight
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " vundle
-Plugin 'tell-k/vim-autopep8'
+Plug 'tell-k/vim-autopep8'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
-"call vundle#end()   " required
-filetype plugin on  " required
+call plug#end()
 
 "------------------------plugins setting----------------------------
 "--airline
