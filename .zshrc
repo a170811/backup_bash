@@ -76,7 +76,8 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -120,6 +121,7 @@ alias ptt='ssh bbsu@ptt.cc'
 alias vir='function vir(){ source ~/.virtualenv/$1/bin/activate ; } ; vir'
 alias venv='python3 -m venv ./.venv ; . ./.venv/bin/activate ; pip install --upgrade pip'
 alias py="time python3"
+alias gr="time go run"
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
@@ -130,7 +132,7 @@ alias cpc='function Cpcompile(){ g++ $1 -o "output" && ./"output" ; } ; Cpcompil
 alias cpca='function CpcompileA(){ g++ *.cpp -o "output" && ./"output" ; } ; CpcompileA'
 alias virc='vi ~/.zshrc'
 alias sorc='source ~/.zshrc'
-alias topub='function topub(){ ln -s $(pwd)/$1 ~/public_html/$2 ; }; topub'
+alias fixpdf='function fixpdf(){ pwd=${PWD}; cd ~/Applications/pdf_annotation_fix/; cargo run -- $1 $2; cd ${pwd}; }; fixpdf'
 alias viewcsv='viewcsv'
 
 function viewcsv () { column -s, -t < $1 | less -#2 -N -S; }
@@ -144,8 +146,6 @@ alias gcam='git commit -a -m '
 alias gca='git commit --amend' #重新commit
 alias gs='git status'
 alias gss='git status -s'
-alias grc='git rm --cached' #移除追蹤
-alias gr='git reset'
 alias gre='git reset HEAD^' #拆第一個commit
 alias gch='git checkout '
 alias gl='git log'
@@ -153,12 +153,6 @@ alias gb='git branch'
 alias gll='git log --pretty=format:"%h - %an , %ar : %s"'
 alias glg='git log --pretty=format:"%h - %s" --graph'
 alias grs='git remote show origin'
-
-alias merry='ssh merry.ee.ncku.edu.tw'
-alias luffy='ssh luffy.ee.ncku.edu.tw'
-alias sunny='ssh sunny.ee.ncku.edu.tw'
-alias paper='rsync -ravh --exclude=.venv --exclude=__pycache__ --exclude=data --exclude=tmp --delete a170811@merry.ee.ncku.edu.tw:~/paper/ /Users/a170811/working/paper/'
-alias paperr='rsync -ravh --exclude=.venv --exclude=__pycache__ --exclude=data --exclude=tmp --delete /Users/a170811/working/paper/ a170811@merry.ee.ncku.edu.tw:~/paper/'
 
 function _rm() {
 while [ $# -ge 1 ]; do
@@ -170,3 +164,10 @@ done
 
 # vi:nowrap:sw=4:ts=4
 export PYTHONPATH="/home/a170811/backup_bash/python_utils/"
+export PATH="$HOME/go/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/a170811/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/a170811/.google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/a170811/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/a170811/.google-cloud-sdk/completion.zsh.inc'; fi

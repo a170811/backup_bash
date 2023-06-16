@@ -4,3 +4,7 @@
 
 [core]
   excludesfile = ~/.gitignore
+[init]
+	defaultBranch = main
+[credential]
+	helper = store

@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 "-----------------------vim-plug plugins------------------------------
 "--utility
 " vim ale
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Indent line
 Plug 'Yggdroot/indentLine'
@@ -93,7 +93,7 @@ let g:ale_linters = {
 let g:ale_python_flake8_options = '--ignore=E501,W291,N806,F405'
 
 let g:ale_fixers = {
-\ 'go': ['gofmt'],
+\ 'go': ['gofumpt', 'goimports'],
 \ 'python': ['autopep8','yapf'],
 \}
 
