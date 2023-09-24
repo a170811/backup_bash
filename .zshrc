@@ -104,7 +104,7 @@ alias cp='cp -i'
 alias du='du -d 1 -h'
 alias h='history | grep'
 alias mv='mv -i'
-alias rm='_rm'
+alias rm='tmp_rm'
 alias rrm='/bin/rm -i'	# real rm
 alias scr='screen -D -R'
 alias vi='vim'
@@ -154,7 +154,7 @@ alias gll='git log --pretty=format:"%h - %an , %ar : %s"'
 alias glg='git log --pretty=format:"%h - %s" --graph'
 alias grs='git remote show origin'
 
-function _rm() {
+function tmp_rm() {
 while [ $# -ge 1 ]; do
   mv -f "$1" $HOME/tmp
   echo "$1 deleted."
