@@ -76,7 +76,7 @@ fi
 export EDITOR=vi
 export GDFONTPATH="$HOME/share/fonts"
 export LANG=zh_TW.UTF-8
-export PATH="$PATH:$HOME/bin:$HOME/.aspera/connect/bin"
+export PYTHONPATH="/home/a170811/backup_bash/python_utils/"
 
 # Standard Aliases
 
@@ -190,16 +190,3 @@ find . -maxdepth 1 -mtime +$1 -exec rm -rf {} \;
 }
 
 detach_others() { tmux detach-client -a; }
-
-# vi:nowrap:sw=4:ts=4
-export CLASSPATH=".:/usr/lib/jvm/java-7-openjdk-amd64";
-export PERL_LOCAL_LIB_ROOT="/usr/local/lib/perl5";
-export PERL_MB_OPT="--install_base /usr/local/lib/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/usr/local/lib/perl5";
-export PERL5LIB="/usr/local/lib/perl5/lib/perl5/i486-linux-gnu-thread-multi:/usr/local/lib/perl5/lib/perl5";
-export PATH="/usr/local/lib/perl5/bin:$PATH";
-PATH=/usr/local/lib/perl5/bin:/usr/local/lib/perl5/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/bobo258/bin:/home/bobo258/.aspera/connect/bin:/home/bobo258/bin:/home/bobo258/.aspera/connect/bin:/home/bobo258/git/thesis/ncbi-blast-2.6.0+/bin
-export PATH
-export PYTHONPATH="/home/a170811/backup_bash/python_utils/"
-
-
