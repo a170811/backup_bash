@@ -84,17 +84,18 @@ let g:Illuminate_ftHighlightGroups = {
 \ }
 "--autopep8
 autocmd FileType python set equalprg=autopep8\ -
+
 "--ale
 let g:ale_fix_on_save = 1
 let g:ale_linters = {
-\   'go': ['vet', 'errcheck'],
-\   'python': ['flake8', 'pylint'],
+\   'go': ['govet', 'errcheck'],
+\   'python': ['pyright', 'ruff'],
 \}
 let g:ale_python_flake8_options = '--ignore=E501,W291,N806,F405'
 
 let g:ale_fixers = {
-\ 'go': ['gofumpt', 'goimports'],
-\ 'python': ['autopep8','yapf'],
+\ 'go': ['gofmt'],
+\ 'python': ['isort', 'black'],
 \}
 
 nnoremap <silent> <C-U> :ALEPreviousWrap<CR>
