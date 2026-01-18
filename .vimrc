@@ -45,10 +45,16 @@ Plug 'RRethy/vim-illuminate'
 Plug 'ervandew/supertab'
 
 " language highlight
+let g:polyglot_disabled = ['typescript', 'tsx', 'typescriptreact', 'jsx']
 Plug 'sheerun/vim-polyglot'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 " vundle
 Plug 'tell-k/vim-autopep8'
+
+" copilot
+Plug 'github/copilot.vim'
 
 " All of your Plugins must be added before the following line
 "-------------------------------------------------------------------
@@ -184,3 +190,6 @@ autocmd FileType vue setlocal autoindent expandtab shiftwidth=2 softtabstop=2 co
 \ | syntax keyword htmlTagName contained component transition transition-group keep-alive slot
 \ | syntax sync fromstart
 highlight vueTag ctermfg=Blue
+
+" Custom setting
+set re=1
