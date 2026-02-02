@@ -124,9 +124,7 @@ alias py="time python3"
 alias gr="time go run"
 alias ..='cd ../'
 alias ...='cd ../../'
-alias ....='cd ../../../'
-alias mkcd='function _mkcd(){ mkdir $1 && cd $1 ;} ; _mkcd '
-alias cc='function Ccompile(){ gcc $1 -o "output" && ./"output" ; } ; Ccompile'
+alias ....='cd ../../../' alias mkcd='function _mkcd(){ mkdir $1 && cd $1 ;} ; _mkcd ' alias cc='function Ccompile(){ gcc $1 -o "output" && ./"output" ; } ; Ccompile'
 alias cca='function CcompileA(){ gcc *.c -o "output" && ./"output" ; } ; CcompileA'
 alias cpc='function Cpcompile(){ g++ $1 -o "output" && ./"output" ; } ; Cpcompile'
 alias cpca='function CpcompileA(){ g++ *.cpp -o "output" && ./"output" ; } ; CpcompileA'
@@ -160,6 +158,69 @@ while [ $# -ge 1 ]; do
   echo "$1 deleted."
   shift
 done
+}
+
+function wt-create() {
+    # 1. 初始化變數
+    local opt_tmux=0
+    local opt_claude=0
+    local wt_name=""
+
+    # 2. 使用迴圈解析參數，支援 name 放在任何位置
+    for arg in "$@"; do
+        case "$arg" in
+            -t) opt_tmux=1 ;;
+            -c) opt_claude=1 ;;
+            -*) echo "❌ 未知參數: $arg"; return 1 ;;
+            *)  wt_name="$arg" ;; # 非橫槓開頭的視為名稱
+        esac
+    done
+
+    # 檢查是否有名稱
+    if [[ -z "$wt_name" ]]; then
+        echo "❌ 請提供 worktree 名稱"
+        return 1
+    fi
+
+    # 3. 定義路徑與環境檢查
+    if ! git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
+        echo "❌ 不在 Git 專案內"
+        return 1
+    fi
+
+    local current_dir="$PWD"
+    local repo_name="${current_dir:t}"
+    local parent_dir="${current_dir:h}"
+    local worktrees_base="${parent_dir}/${repo_name}-worktrees"
+    local target_dir="${worktrees_base}/${wt_name}"
+
+    # 4. 建立 Worktree
+    mkdir -p "$worktrees_base"
+    if ! git worktree add -b "$wt_name" "$target_dir"; then
+        return 1
+    fi
+
+    # 5. 複製設定檔
+    [[ -f "${current_dir}/.env" ]] && cp "${current_dir}/.env" "$target_dir/" && echo "✅ 已複製 .env"
+    [[ -e "${current_dir}/.claude" ]] && cp -r "${current_dir}/.claude" "$target_dir/" && echo "✅ 已複製 .claude"
+
+    # 6. 切換目錄 (因為是 Function，所以 cd 會直接生效)
+    cd "$target_dir" || return 1
+    echo "🚀 已進入: $target_dir"
+
+    # 7. Tmux & Claude 邏輯 (確保先 tmux 後 claude)
+    if [[ $opt_tmux -eq 1 ]]; then
+        tmux new-session -d -s "$wt_name"
+        [[ $opt_claude -eq 1 ]] && tmux send-keys -t "$wt_name" "claude" C-m
+
+        if [[ -n "$TMUX" ]]; then
+            tmux switch-client -t "$wt_name"
+        else
+            tmux attach-session -t "$wt_name"
+        fi
+    elif [[ $opt_claude -eq 1 ]]; then
+        claude
+    fi
 }
 
 # vi:nowrap:sw=4:ts=4
