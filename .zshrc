@@ -225,4 +225,4 @@ function wt-create() {
 
 # vi:nowrap:sw=4:ts=4
 export PYTHONPATH="$HOME/backup_bash/python_utils/"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
