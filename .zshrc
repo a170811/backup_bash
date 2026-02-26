@@ -116,8 +116,6 @@ alias tre='function tre(){ tmux rename-session -t $1 $2 ; }; tre'
 alias se='set'
 alias en='encoding'
 #
-alias ptt='ssh bbsu@ptt.cc'
-#
 alias vir='function vir(){ source ~/.virtualenv/$1/bin/activate ; } ; vir'
 alias venv='python3 -m venv ./.venv ; . ./.venv/bin/activate ; pip install --upgrade pip'
 alias py="time python3"
@@ -125,13 +123,10 @@ alias gr="time go run"
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../' alias mkcd='function _mkcd(){ mkdir $1 && cd $1 ;} ; _mkcd ' alias cc='function Ccompile(){ gcc $1 -o "output" && ./"output" ; } ; Ccompile'
-alias cca='function CcompileA(){ gcc *.c -o "output" && ./"output" ; } ; CcompileA'
-alias cpc='function Cpcompile(){ g++ $1 -o "output" && ./"output" ; } ; Cpcompile'
-alias cpca='function CpcompileA(){ g++ *.cpp -o "output" && ./"output" ; } ; CpcompileA'
 alias virc='vi ~/.zshrc'
 alias sorc='source ~/.zshrc'
-alias fixpdf='function fixpdf(){ pwd=${PWD}; cd ~/Applications/pdf_annotation_fix/; cargo run -- $1 $2; cd ${pwd}; }; fixpdf'
 alias viewcsv='viewcsv'
+alias wclaude='CLAUDE_CONFIG_DIR=~/.claude-work claude'
 
 function viewcsv () { column -s, -t < $1 | less -#2 -N -S; }
 
@@ -150,7 +145,6 @@ alias gl='git log'
 alias gb='git branch'
 alias gll='git log --pretty=format:"%h - %an , %ar : %s"'
 alias glg='git log --pretty=format:"%h - %s" --graph'
-alias grs='git remote show origin'
 
 function tmp_rm() {
 while [ $# -ge 1 ]; do
