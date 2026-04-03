@@ -122,13 +122,21 @@ alias py="time python3"
 alias gr="time go run"
 alias ..='cd ../'
 alias ...='cd ../../'
-alias ....='cd ../../../' alias mkcd='function _mkcd(){ mkdir $1 && cd $1 ;} ; _mkcd ' alias cc='function Ccompile(){ gcc $1 -o "output" && ./"output" ; } ; Ccompile'
+alias ....='cd ../../../'
+alias mkcd='function _mkcd(){ mkdir $1 && cd $1 ;} ; _mkcd '
+alias cc='function Ccompile(){ gcc $1 -o "output" && ./"output" ; } ; Ccompile'
 alias virc='vi ~/.zshrc'
 alias sorc='source ~/.zshrc'
 alias viewcsv='viewcsv'
 alias wclaude='CLAUDE_CONFIG_DIR=~/.claude-work claude'
 
 function viewcsv () { column -s, -t < $1 | less -#2 -N -S; }
+
+ping-claude() {
+    local seconds=$(($1 * 3600))
+    nohup bash -c "sleep $seconds && claude -p 'HI'" >/dev/null 2>&1 &
+    echo "已排定於 $1 小時後執行。"
+}
 
 
 #git
