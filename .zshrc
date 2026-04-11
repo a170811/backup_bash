@@ -203,8 +203,6 @@ function wt-create() {
     fi
 
     # 5. 複製設定檔
-    [[ -f "${current_dir}/.env" ]] && cp "${current_dir}/.env" "$target_dir/" && echo "✅ 已複製 .env"
-    [[ -e "${current_dir}/.claude" ]] && cp -r "${current_dir}/.claude" "$target_dir/" && echo "✅ 已複製 .claude"
 
     # 6. 切換目錄 (因為是 Function，所以 cd 會直接生效)
     cd "$target_dir" || return 1
